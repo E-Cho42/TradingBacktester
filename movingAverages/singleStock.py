@@ -4,8 +4,8 @@ import pandas as pd
 import matplotlib.pyplot as plt
 
 # Define ticker and date range
-ticker = "IMAX" #<------ Ticker 
-start_date = "1980-01-01"
+ticker = "FDX" #<------ Ticker 
+start_date = "2010-01-01"
 end_date = "2025-9-22"
 
 # Download data
@@ -13,8 +13,8 @@ df = yf.download(ticker, start_date, end_date)
 
 # --------------------------------- Begin define trading logic ------------------------------------- #
 # Define moving average window sizes
-short_w = 5
-long_w = 10
+short_w = 20
+long_w = 50
 
 # Calculate the moving averages
 df["SMA_short"] = df["Close"].rolling(short_w).mean()
@@ -36,7 +36,7 @@ df['Position'] = df['Signal'].diff()
 
 # --------------------------------- End define trading logic ------------------------------------- #
 #intializes cash
-initial_cash = 500  # starting money
+initial_cash = 100  # starting money
 cash = initial_cash
 shares = 0
 portfolio_values = []

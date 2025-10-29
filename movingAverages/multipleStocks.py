@@ -100,3 +100,5 @@ for i in portfolio:
     i.graph()
     profits.append(float(i.profit))
     
+    
+    
